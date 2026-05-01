@@ -309,10 +309,105 @@
       .stay-time-row { grid-template-columns: 1fr; }
       .stay-body { padding: 0; }
       .info-card { min-height: auto; padding: 18px; }
-      .date-head { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .form-grid .wide { grid-column: auto; }
-      table { min-width: 640px; }
+
+      .agenda-section, .manager-panel { padding: 14px; }
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-head h2 { font-size: 18px; }
+      .section-head .subcopy {
+        font-size: 11px;
+        line-height: 1.25;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .section-head .primary-btn,
+      .section-head .ghost-btn {
+        min-height: 30px;
+        padding: 0 10px;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .date-head {
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 6px;
+        padding: 8px;
+      }
+      .date-head input[type="date"] {
+        min-width: 0;
+        width: 100%;
+        font-size: 12px;
+        padding: 7px 8px;
+      }
+      .date-head .ghost-btn {
+        min-height: 30px;
+        padding: 0 9px;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .date-head .danger-btn {
+        width: 28px;
+        min-height: 28px;
+        padding: 0;
+      }
+      .date-head > span { display: none; }
+
+      .table-wrap {
+        overflow-x: visible;
+        border: 0;
+        background: transparent;
+      }
+      table, thead, tbody, tr, th, td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+      thead { display: none; }
+      tbody { display: grid; gap: 8px; }
+      tr[data-id], tr[data-group] {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+        padding: 10px;
+      }
+      td {
+        border-bottom: 0;
+        padding: 4px 0;
+      }
+      td input, td textarea, td select {
+        min-width: 0;
+        width: 100%;
+        font-size: 12px;
+        padding: 8px;
+      }
+      td .danger-btn, td button.danger-btn {
+        width: 100%;
+        min-height: 30px;
+        font-size: 11px;
+        margin-top: 4px;
+      }
+
+      .category-header {
+        grid-template-columns: auto 1fr auto auto;
+        gap: 6px;
+        padding: 8px;
+      }
+      .category-header .ghost-btn,
+      .category-header .danger-btn {
+        min-height: 28px;
+        padding: 0 8px;
+        font-size: 11px;
+      }
+      .check-row {
+        grid-template-columns: auto 1fr auto;
+      }
     }
   </style>
 </head>
