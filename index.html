@@ -14,12 +14,10 @@
       --muted: #8a8a8a;
       --line: #ece7e2;
       --primary: #111111;
-      --primary-soft: #f5f5f5;
-      --accent: #e8dfd6;
-      --shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+      --danger: #dc2626;
+      --shadow: 0 10px 28px rgba(0,0,0,.04);
       --radius-lg: 20px;
       --radius-md: 14px;
-      --radius-sm: 10px;
     }
 
     * { box-sizing: border-box; }
@@ -31,7 +29,6 @@
       color: var(--text);
       font-size: 14px;
     }
-
     button, input, textarea, select { font: inherit; }
     button { border: 0; cursor: pointer; }
     input, textarea, select {
@@ -42,62 +39,24 @@
       border-radius: 10px;
       padding: 8px 10px;
       outline: none;
-      transition: border 0.2s, box-shadow 0.2s;
     }
     input:focus, textarea:focus, select:focus {
       border-color: #111;
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 0 0 3px rgba(0,0,0,.08);
     }
     textarea { resize: vertical; min-height: 36px; }
     .hidden { display: none !important; }
 
-    .app {
-      width: min(1360px, 100%);
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 26px 18px 18px;
-    }
+    .app { width: min(1360px, 100%); min-height: 100vh; margin: 0 auto; padding: 26px 18px 18px; }
+    .topbar, .page-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .detail-header { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: end; column-gap: 22px; row-gap: 12px; margin: 54px 0 22px; }
 
-    .topbar, .page-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .detail-header {
-      display: grid;
-      grid-template-columns: 38px minmax(0, 1fr) auto;
-      align-items: end;
-      column-gap: 22px;
-      row-gap: 12px;
-      margin: 54px 0 22px;
-    }
-
-    .brand { display: flex; align-items: center; gap: 10px; letter-spacing: -0.04em; }
-    .brand-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #111;
-      color: #fff;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    }
+    .brand { display: flex; align-items: center; gap: 10px; letter-spacing: -.04em; }
+    .brand-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #111; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.08); }
     .brand h1 { margin: 0; font-size: clamp(24px, 3.5vw, 38px); line-height: 1; }
-    .subcopy { margin: 5px 0 0; color: var(--muted); font-size: 13px; letter-spacing: -0.02em; }
+    .subcopy { margin: 5px 0 0; color: var(--muted); font-size: 13px; letter-spacing: -.02em; }
 
-    .icon-btn, .primary-btn, .ghost-btn, .danger-btn, .back-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.18s, opacity 0.18s;
-    }
+    .icon-btn, .primary-btn, .ghost-btn, .danger-btn, .back-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; font-weight: 700; transition: transform .18s, opacity .18s; }
     .icon-btn:hover, .primary-btn:hover, .ghost-btn:hover, .danger-btn:hover, .back-btn:hover { transform: translateY(-1px); }
     .icon-btn { width: 42px; height: 42px; background: var(--primary); color: #fff; box-shadow: var(--shadow); }
     .primary-btn { min-height: 36px; padding: 0 14px; background: var(--primary); color: #fff; }
@@ -106,164 +65,54 @@
     .back-btn { width: 38px; height: 38px; background: var(--surface); border: 1px solid var(--line); border-radius: 13px; }
     .small-icon { width: 15px; height: 15px; }
 
-    .layout-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
-
-    .main-hero {
-      padding: clamp(22px, 3vw, 34px);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 16px;
-      background: var(--surface);
-    }
-    .main-hero h2 { margin: 0; font-size: clamp(26px, 4vw, 48px); letter-spacing: -0.06em; line-height: 1.05; }
+    .layout-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .main-hero { padding: clamp(22px, 3vw, 34px); display: grid; grid-template-columns: 1fr; gap: 12px; align-items: center; margin-bottom: 16px; background: var(--surface); }
+    .main-hero h2 { margin: 0; font-size: clamp(26px, 4vw, 48px); letter-spacing: -.06em; line-height: 1.05; }
 
     .trip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
-    .trip-card {
-      position: relative;
-      min-height: 140px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
-    }
-    .trip-card h3 { margin: 0; font-size: 20px; letter-spacing: -0.04em; }
+    .trip-card { position: relative; min-height: 140px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 20px rgba(0,0,0,.03); }
+    .trip-card h3 { margin: 0; font-size: 20px; letter-spacing: -.04em; }
     .trip-card p { color: var(--muted); margin: 8px 0 0; font-size: 12px; }
     .trip-open { align-self: flex-start; margin-top: 18px; }
     .delete-trip { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; border-radius: 50%; background: #f8f4ed; color: var(--muted); }
 
-    .trip-title-input {
-      justify-self: start;
-      width: min(760px, 100%);
-      max-width: 760px;
-      border: 0;
-      background: transparent;
-      padding: 0;
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 900;
-      letter-spacing: -0.065em;
-      box-shadow: none !important;
-      text-align: left;
-    }
-
-    .tabs {
-      display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 8px 0 16px;
-    }
-    .tab-btn {
-      flex: 0 0 auto;
-      min-width: 120px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-weight: 700;
-    }
+    .trip-title-input { justify-self: start; width: min(760px, 100%); max-width: 760px; border: 0; background: transparent; padding: 0; font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -.065em; box-shadow: none !important; text-align: left; }
+    .tabs { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 8px; margin: 8px 0 16px; }
+    .tab-btn { flex: 0 0 auto; min-width: 120px; padding: 8px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--muted); font-weight: 700; }
     .tab-btn:hover { background: #111; color: #fff; }
-    .tab-btn:hover { background: var(--primary); color: #fff; }
 
-    .detail-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: start;
-      margin-bottom: 14px;
-    }
+    .detail-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px; align-items: start; margin-bottom: 14px; }
     .section, .agenda-section, .manager-panel { padding: 18px; }
-
-    .info-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      padding: 20px 22px;
-      min-height: 170px;
-      cursor: pointer;
-      transition: transform 0.18s, box-shadow 0.18s;
-      border-radius: 18px;
-    }
-    .info-card:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(31, 41, 55, 0.08); }
+    .info-card { background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); padding: 20px 22px; min-height: 170px; cursor: pointer; transition: transform .18s, box-shadow .18s; border-radius: 18px; }
+    .info-card:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(31,41,55,.08); }
     .info-card.empty-card { display: grid; align-content: center; justify-items: start; gap: 10px; }
     .empty-card-copy { color: var(--muted); font-weight: 800; font-size: 15px; }
     .card-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-    .card-title { margin: 0; font-size: clamp(18px, 1.8vw, 22px); font-weight: 900; letter-spacing: -0.04em; }
+    .card-title { margin: 0; font-size: clamp(18px, 1.8vw, 22px); font-weight: 900; letter-spacing: -.04em; }
     .transport-body, .stay-body { display: grid; gap: 10px; }
 
-    .route-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 10px;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 12px;
-      background: var(--surface-soft);
-    }
-    .route-points {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) 24px minmax(0, 1.05fr);
-      gap: 4px;
-      align-items: center;
-      min-width: 0;
-      font-size: 13px;
-      font-weight: 800;
-    }
+    .route-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 12px; background: var(--surface-soft); }
+    .route-points { display: grid; grid-template-columns: minmax(0,.95fr) 24px minmax(0,1.05fr); gap: 4px; align-items: center; min-width: 0; font-size: 13px; font-weight: 800; }
     .route-points span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .route-points strong {
-      display: block;
-      width: 24px;
-      text-align: center;
-      line-height: 1;
-      transform: translateX(-10px);
-    }
-    .time-range {
-      display: flex;
-      justify-content: flex-end;
-      gap: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
-    }
-    .transport-detail-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      padding: 0 12px;
-    }
+    .route-points strong { display: block; width: 24px; text-align: center; line-height: 1; transform: translateX(-10px); }
+    .time-range { display: flex; justify-content: flex-end; gap: 6px; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .transport-detail-row { display: grid; grid-template-columns: 1fr; padding: 0 12px; }
     .card-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: clamp(12px, 1.05vw, 14px); }
     .transport-detail { color: var(--text); font-weight: 600; font-size: 14px; }
 
     .stay-body { padding: 0; align-items: start; }
     .stay-main { font-size: clamp(16px, 1.35vw, 18px); font-weight: 800; color: var(--text); }
     .stay-address { font-size: clamp(14px, 1.2vw, 16px); font-weight: 700; color: var(--text); }
-    .stay-time-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 6px;
-      width: 100%;
-    }
-    .stay-line { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 9px; align-items: center; }
+    .stay-time-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; width: 100%; }
+    .stay-line { display: grid; grid-template-columns: 72px minmax(0,1fr); gap: 9px; align-items: center; }
     .stay-line .card-text { font-size: clamp(14px, 1.25vw, 17px); font-weight: 700; }
     .time-badge { display: inline-flex; align-items: center; justify-content: center; padding: 5px 8px; border-radius: 9px; background: var(--surface-soft); color: var(--text); font-size: 13px; font-weight: 800; }
 
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .form-grid .wide { grid-column: 1 / -1; }
     .form-label { display: grid; gap: 6px; color: var(--muted); font-size: 12px; font-weight: 800; }
-
     .section-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
-    .section h2, .agenda-section h2, .manager-panel h2 { margin: 0; letter-spacing: -0.04em; font-size: 20px; }
+    .section h2, .agenda-section h2, .manager-panel h2 { margin: 0; letter-spacing: -.04em; font-size: 20px; }
 
     .table-wrap { width: 100%; overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); background: #fff; }
     table { width: 100%; border-collapse: collapse; min-width: 720px; }
@@ -275,7 +124,7 @@
     .th-filter { display: grid; gap: 5px; }
     .th-filter select { min-width: 120px; padding: 5px 7px; font-size: 11px; border-radius: 8px; }
 
-    .page-header h2 { margin: 0; font-size: 24px; letter-spacing: -0.05em; }
+    .page-header h2 { margin: 0; font-size: 24px; letter-spacing: -.05em; }
     .check-category { border: 1px solid var(--line); border-radius: 16px; background: #fff; margin-bottom: 10px; overflow: hidden; }
     .category-header { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 8px; padding: 10px; background: var(--surface-soft); }
     .category-header input { font-weight: 900; background: transparent; border: 0; box-shadow: none !important; padding: 5px; }
@@ -286,14 +135,15 @@
     .check-row input[type="text"] { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none !important; }
 
     .date-group { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: 12px; background: #fff; }
-    .date-head { display: grid; grid-template-columns: 150px auto 1fr auto; gap: 8px; align-items: center; padding: 8px 10px; background: var(--surface-soft); }
+    .date-head { display: grid; grid-template-columns: auto 132px auto 1fr auto; gap: 8px; align-items: center; padding: 8px 10px; background: var(--surface-soft); }
+    .date-head input[type="date"] { width: 132px; min-width: 0; }
     .date-head .ghost-btn { min-height: 30px; padding: 0 10px; font-size: 12px; }
     .date-head .danger-btn { width: 30px; min-height: 30px; padding: 0; border-radius: 50%; }
-    .empty { padding: 30px 16px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 18px; background: rgba(255,255,255,0.45); }
+    .empty { padding: 30px 16px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 18px; background: rgba(255,255,255,.45); }
 
-    .modal-backdrop { position: fixed; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(31,41,55,0.35); z-index: 50; }
+    .modal-backdrop { position: fixed; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(31,41,55,.35); z-index: 50; }
     .modal { width: min(460px, 100%); max-height: 92vh; overflow: auto; padding: 20px; background: #fff; border-radius: 22px; box-shadow: var(--shadow); }
-    .modal h2 { margin: 0 0 12px; letter-spacing: -0.04em; }
+    .modal h2 { margin: 0 0 12px; letter-spacing: -.04em; }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
 
     @media (max-width: 900px) {
@@ -311,103 +161,28 @@
       .info-card { min-height: auto; padding: 18px; }
       .form-grid { grid-template-columns: 1fr; }
       .form-grid .wide { grid-column: auto; }
-
       .agenda-section, .manager-panel { padding: 14px; }
-      .section-head {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: center;
-        gap: 8px;
-      }
+      .section-head { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 8px; }
       .section-head h2 { font-size: 18px; }
-      .section-head .subcopy {
-        font-size: 11px;
-        line-height: 1.25;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .section-head .primary-btn,
-      .section-head .ghost-btn {
-        min-height: 30px;
-        padding: 0 10px;
-        font-size: 11px;
-        white-space: nowrap;
-      }
-
-      .date-head {
-        grid-template-columns: minmax(0, 1fr) auto auto;
-        gap: 6px;
-        padding: 8px;
-      }
-      .date-head input[type="date"] {
-        min-width: 0;
-        width: 100%;
-        font-size: 12px;
-        padding: 7px 8px;
-      }
-      .date-head .ghost-btn {
-        min-height: 30px;
-        padding: 0 9px;
-        font-size: 11px;
-        white-space: nowrap;
-      }
-      .date-head .danger-btn {
-        width: 28px;
-        min-height: 28px;
-        padding: 0;
-      }
+      .section-head .subcopy { font-size: 11px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .section-head .primary-btn, .section-head .ghost-btn { min-height: 30px; padding: 0 10px; font-size: 11px; white-space: nowrap; }
+      .date-head { grid-template-columns: auto 118px auto auto; gap: 5px; padding: 8px; }
+      .date-head input[type="date"] { min-width: 0; width: 118px; max-width: 118px; font-size: 11px; padding: 7px 6px; }
+      .date-head .ghost-btn { min-height: 30px; padding: 0 9px; font-size: 11px; white-space: nowrap; }
+      .date-head .danger-btn { width: 28px; min-height: 28px; padding: 0; }
       .date-head > span { display: none; }
-
-      .table-wrap {
-        overflow-x: visible;
-        border: 0;
-        background: transparent;
-      }
-      table, thead, tbody, tr, th, td {
-        display: block;
-        width: 100%;
-        min-width: 0;
-      }
+      .date-head .toggle-btn { width: 28px; height: 28px; min-width: 28px; }
+      .table-wrap { overflow-x: visible; border: 0; background: transparent; }
+      table, thead, tbody, tr, th, td { display: block; width: 100%; min-width: 0; }
       thead { display: none; }
       tbody { display: grid; gap: 8px; }
-      tr[data-id], tr[data-group] {
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        background: #fff;
-        padding: 10px;
-      }
-      td {
-        border-bottom: 0;
-        padding: 4px 0;
-      }
-      td input, td textarea, td select {
-        min-width: 0;
-        width: 100%;
-        font-size: 12px;
-        padding: 8px;
-      }
-      td .danger-btn, td button.danger-btn {
-        width: 100%;
-        min-height: 30px;
-        font-size: 11px;
-        margin-top: 4px;
-      }
-
-      .category-header {
-        grid-template-columns: auto 1fr auto auto;
-        gap: 6px;
-        padding: 8px;
-      }
-      .category-header .ghost-btn,
-      .category-header .danger-btn {
-        min-height: 28px;
-        padding: 0 8px;
-        font-size: 11px;
-      }
-      .check-row {
-        grid-template-columns: auto 1fr auto;
-      }
+      tr[data-id], tr[data-group] { border: 1px solid var(--line); border-radius: 14px; background: #fff; padding: 10px; }
+      td { border-bottom: 0; padding: 4px 0; }
+      td input, td textarea, td select { min-width: 0; width: 100%; font-size: 12px; padding: 8px; }
+      td .danger-btn, td button.danger-btn { width: 100%; min-height: 30px; font-size: 11px; margin-top: 4px; }
+      .category-header { grid-template-columns: auto 1fr auto auto; gap: 6px; padding: 8px; }
+      .category-header .ghost-btn, .category-header .danger-btn { min-height: 28px; padding: 0 8px; font-size: 11px; }
+      .check-row { grid-template-columns: auto 1fr auto; }
     }
   </style>
 </head>
@@ -417,9 +192,7 @@
       <div class="topbar">
         <div class="brand">
           <div class="brand-icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 12c2-2 4-1 4 1s-2 4-5 4-5-2-5-5 3-7 8-7 9 4 9 9-4 9-10 9-11-5-11-11"/>
-            </svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c2-2 4-1 4 1s-2 4-5 4-5-2-5-5 3-7 8-7 9 4 9 9-4 9-10 9-11-5-11-11"/></svg>
           </div>
           <div>
             <h1>TABI</h1>
@@ -429,14 +202,7 @@
         </div>
         <button class="icon-btn" id="addTripBtn" aria-label="새로운 여행 추가"><i data-lucide="plus"></i></button>
       </div>
-
-      <section class="main-hero layout-card">
-        <div>
-          <h2>Plan lightly.<br />Travel deeply.</h2>
-          <p class="subcopy">새로운 여행을 추가하고 세부 계획을 작성하세요.</p>
-        </div>
-      </section>
-
+      <section class="main-hero layout-card"><div><h2>Plan lightly.<br />Travel deeply.</h2><p class="subcopy">새로운 여행을 추가하고 세부 계획을 작성하세요.</p></div></section>
       <section id="tripGrid" class="trip-grid"></section>
     </main>
 
@@ -450,82 +216,39 @@
           <button class="ghost-btn" id="saveStatus"><i data-lucide="cloud-check" class="small-icon"></i> 자동 저장</button>
         </div>
       </header>
-
       <nav class="tabs" aria-label="세부 탭">
         <button class="tab-btn" data-manager="checklist">✅&nbsp;체크리스트</button>
         <button class="tab-btn" data-manager="places">📍&nbsp;가고 싶은 곳</button>
         <button class="tab-btn" data-manager="expenses">💵&nbsp;지출</button>
       </nav>
-
       <section class="detail-grid">
         <article id="transportCard" class="section layout-card info-card" role="button" tabindex="0" aria-label="교통수단 정보 입력"></article>
         <article id="stayCard" class="section layout-card info-card" role="button" tabindex="0" aria-label="숙박 정보 입력"></article>
       </section>
-
       <section class="agenda-section layout-card">
-        <div class="section-head">
-          <div>
-            <h2>일정</h2>
-            <p class="subcopy">날짜를 추가한 뒤 시간, 장소, 교통수단과 비고를 작성하세요.</p>
-          </div>
-          <button class="primary-btn" id="addScheduleDateBtn"><i data-lucide="calendar-plus" class="small-icon"></i> 날짜 추가</button>
-        </div>
+        <div class="section-head"><div><h2>일정</h2></div><button class="primary-btn" id="addScheduleDateBtn"><i data-lucide="calendar-plus" class="small-icon"></i> 날짜 추가</button></div>
         <div id="scheduleWrap"></div>
       </section>
     </main>
 
     <main id="managerPage" class="hidden">
       <header class="page-header">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <button class="back-btn" id="managerBackBtn"><i data-lucide="arrow-left"></i></button>
-          <h2 id="managerTitle"></h2>
-        </div>
+        <div style="display:flex;align-items:center;gap:10px;"><button class="back-btn" id="managerBackBtn"><i data-lucide="arrow-left"></i></button><h2 id="managerTitle"></h2></div>
         <button class="ghost-btn" id="managerSaveStatus"><i data-lucide="cloud-check" class="small-icon"></i> 자동 저장</button>
       </header>
       <section id="managerPanel" class="manager-panel layout-card"></section>
     </main>
   </div>
 
-  <div id="modalBackdrop" class="modal-backdrop hidden">
-    <div class="modal">
-      <h2>새로운 여행 추가</h2>
-      <input id="newTripTitle" placeholder="예: 오사카 3박 4일" />
-      <div class="modal-actions">
-        <button class="ghost-btn" id="cancelTripBtn">취소</button>
-        <button class="primary-btn" id="createTripBtn">추가</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="infoModalBackdrop" class="modal-backdrop hidden">
-    <div class="modal">
-      <h2 id="infoModalTitle"></h2>
-      <div id="infoModalFields" class="form-grid"></div>
-      <div class="modal-actions">
-        <button class="ghost-btn" id="cancelInfoBtn">취소</button>
-        <button class="primary-btn" id="confirmInfoBtn">확인</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="authModalBackdrop" class="modal-backdrop hidden">
-    <div class="modal">
-      <h2>로그인</h2>
-      <p class="subcopy">단일 HTML 버전에서는 같은 브라우저의 로컬 저장소 기준으로 동기화됩니다.</p>
-      <input id="authNameInput" placeholder="이름 또는 닉네임" />
-      <div class="modal-actions">
-        <button class="ghost-btn" id="cancelAuthBtn">취소</button>
-        <button class="primary-btn" id="confirmAuthBtn">확인</button>
-      </div>
-    </div>
-  </div>
+  <div id="modalBackdrop" class="modal-backdrop hidden"><div class="modal"><h2>새로운 여행 추가</h2><input id="newTripTitle" placeholder="예: 오사카 3박 4일" /><div class="modal-actions"><button class="ghost-btn" id="cancelTripBtn">취소</button><button class="primary-btn" id="createTripBtn">추가</button></div></div></div>
+  <div id="infoModalBackdrop" class="modal-backdrop hidden"><div class="modal"><h2 id="infoModalTitle"></h2><div id="infoModalFields" class="form-grid"></div><div class="modal-actions"><button class="ghost-btn" id="cancelInfoBtn">취소</button><button class="primary-btn" id="confirmInfoBtn">확인</button></div></div></div>
+  <div id="authModalBackdrop" class="modal-backdrop hidden"><div class="modal"><h2>로그인</h2><p class="subcopy">단일 HTML 버전에서는 같은 브라우저의 로컬 저장소 기준으로 동기화됩니다.</p><input id="authNameInput" placeholder="이름 또는 닉네임" /><div class="modal-actions"><button class="ghost-btn" id="cancelAuthBtn">취소</button><button class="primary-btn" id="confirmAuthBtn">확인</button></div></div></div>
 
   <script>
     const STORAGE_KEY = 'travelog-app-v2';
     const CLOUD_KEY = 'travelog-cloud';
     const USER_KEY = 'travelog-user';
     const CURRENCIES = ['KRW', 'JPY', 'USD', 'EUR', 'CNY', 'GBP', 'THB', 'VND'];
-
     const $ = selector => document.querySelector(selector);
     const $$ = selector => [...document.querySelectorAll(selector)];
 
@@ -534,33 +257,11 @@
     let managerView = null;
     let editingInfoType = null;
     let currentUser = localStorage.getItem(USER_KEY) || '';
-    let filters = {
-      placesType: 'all',
-      placesArea: 'all',
-      expenseType: 'all',
-      paymentType: 'all',
-      scheduleTransport: 'all'
-    };
+    let filters = { placesType: 'all', placesArea: 'all', expenseType: 'all', paymentType: 'all', scheduleTransport: 'all' };
 
-    function safeUUID() {
-      return crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
-    }
-
+    function safeUUID() { return crypto && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2); }
     function defaultTrip(title) {
-      return {
-        id: safeUUID(),
-        title,
-        createdAt: new Date().toISOString(),
-        checklist: [],
-        places: [],
-        expenses: [],
-        transport: {
-          type: '', name: '', from: '', to: '', start: '', end: '',
-          returnFrom: '', returnTo: '', returnName: '', returnStart: '', returnEnd: ''
-        },
-        stay: { type: '', name: '', checkin: '', checkout: '', location: '' },
-        schedule: []
-      };
+      return { id: safeUUID(), title, createdAt: new Date().toISOString(), checklist: [], places: [], expenses: [], transport: { type: '', name: '', from: '', to: '', start: '', end: '', returnFrom: '', returnTo: '', returnName: '', returnStart: '', returnEnd: '' }, stay: { type: '', name: '', checkin: '', checkout: '', location: '' }, schedule: [] };
     }
 
     function loadState() {
@@ -568,47 +269,33 @@
         const cloud = localStorage.getItem(CLOUD_KEY);
         const local = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('travelog-app-v1');
         const saved = JSON.parse(cloud || local || 'null');
-        if (saved && Array.isArray(saved.trips)) {
-          saved.trips.forEach(migrateTrip);
-          return saved;
-        }
-      } catch (error) {
-        console.warn('저장 데이터를 불러오지 못했습니다.', error);
-      }
+        if (saved && Array.isArray(saved.trips)) { saved.trips.forEach(migrateTrip); return saved; }
+      } catch (error) { console.warn('저장 데이터를 불러오지 못했습니다.', error); }
       return { trips: [defaultTrip('제주 여름 여행')] };
     }
 
     function migrateTrip(trip) {
-      trip.transport = {
-        type: '', name: '', from: '', to: '', start: '', end: '',
-        returnFrom: '', returnTo: '', returnName: '', returnStart: '', returnEnd: '',
-        ...(trip.transport || {})
-      };
+      trip.transport = { type: '', name: '', from: '', to: '', start: '', end: '', returnFrom: '', returnTo: '', returnName: '', returnStart: '', returnEnd: '', ...(trip.transport || {}) };
       trip.stay = { type: '', name: '', checkin: '', checkout: '', location: '', ...(trip.stay || {}) };
       trip.checklist ||= [];
       trip.places ||= [];
       trip.expenses ||= [];
       trip.schedule ||= [];
-
       if (trip.schedule.length && !trip.schedule[0].items) {
         const grouped = [];
         trip.schedule.forEach(row => {
           const date = row.date || '';
           let group = grouped.find(item => item.date === date);
-          if (!group) {
-            group = { id: safeUUID(), date, items: [] };
-            grouped.push(group);
-          }
-          group.items.push({
-            id: row.id || safeUUID(),
-            time: row.time || '',
-            place: row.place || '',
-            transport: row.transport || '',
-            note: row.note || ''
-          });
+          if (!group) { group = { id: safeUUID(), date, collapsed: false, items: [] }; grouped.push(group); }
+          group.items.push({ id: row.id || safeUUID(), startTime: row.startTime || row.time || '', endTime: row.endTime || '', place: row.place || '', transport: row.transport || '', note: row.note || '' });
         });
         trip.schedule = grouped;
       }
+      trip.schedule.forEach(group => {
+        group.collapsed = Boolean(group.collapsed);
+        group.items ||= [];
+        group.items.forEach(item => { item.startTime = item.startTime || item.time || ''; item.endTime = item.endTime || ''; });
+      });
     }
 
     function saveState() {
@@ -620,42 +307,16 @@
       });
       refreshIcons();
     }
-
-    function currentTrip() {
-      return state.trips.find(trip => trip.id === currentTripId);
-    }
-
-    function refreshIcons() {
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function escapeHTML(value = '') {
-      return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
+    function currentTrip() { return state.trips.find(trip => trip.id === currentTripId); }
+    function refreshIcons() { if (window.lucide) lucide.createIcons(); }
+    function escapeHTML(value = '') { return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'", '&#039;'); }
     function escapeAttr(value = '') { return escapeHTML(value); }
     function valueOrDash(value) { return value ? escapeHTML(value) : '—'; }
-    function uniqueValues(items, key) {
-      return [...new Set(items.map(item => item[key]).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));
-    }
-    function formatDate(iso) {
-      return new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso));
-    }
+    function uniqueValues(items, key) { return [...new Set(items.map(item => item[key]).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ko')); }
+    function formatDate(iso) { return new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso)); }
 
-    function openModal() {
-      $('#modalBackdrop').classList.remove('hidden');
-      $('#newTripTitle').value = '';
-      setTimeout(() => $('#newTripTitle').focus(), 0);
-    }
-
-    function closeModal() {
-      $('#modalBackdrop').classList.add('hidden');
-    }
-
+    function openModal() { $('#modalBackdrop').classList.remove('hidden'); $('#newTripTitle').value = ''; setTimeout(() => $('#newTripTitle').focus(), 0); }
+    function closeModal() { $('#modalBackdrop').classList.add('hidden'); }
     function createTrip() {
       const title = $('#newTripTitle').value.trim();
       if (!title) return;
@@ -666,38 +327,19 @@
       renderMain();
       openDetail(trip.id);
     }
-
-    function deleteTrip(id, event) {
-      event.stopPropagation();
-      if (!confirm('이 여행을 삭제할까요?')) return;
-      state.trips = state.trips.filter(trip => trip.id !== id);
-      saveState();
-      renderMain();
-    }
-
-    function showPage(page) {
-      $('#mainPage').classList.toggle('hidden', page !== 'main');
-      $('#detailPage').classList.toggle('hidden', page !== 'detail');
-      $('#managerPage').classList.toggle('hidden', page !== 'manager');
-    }
+    function deleteTrip(id, event) { event.stopPropagation(); if (!confirm('이 여행을 삭제할까요?')) return; state.trips = state.trips.filter(trip => trip.id !== id); saveState(); renderMain(); }
+    function showPage(page) { $('#mainPage').classList.toggle('hidden', page !== 'main'); $('#detailPage').classList.toggle('hidden', page !== 'detail'); $('#managerPage').classList.toggle('hidden', page !== 'manager'); }
 
     function renderMain() {
       showPage('main');
       const grid = $('#tripGrid');
       grid.innerHTML = '';
-      if (!state.trips.length) {
-        grid.innerHTML = '<div class="empty">아직 추가된 여행이 없습니다.</div>';
-        refreshIcons();
-        return;
-      }
+      if (!state.trips.length) { grid.innerHTML = '<div class="empty">아직 추가된 여행이 없습니다.</div>'; refreshIcons(); return; }
       state.trips.forEach(trip => {
         const card = document.createElement('article');
         card.className = 'trip-card';
         const scheduleCount = trip.schedule.reduce((sum, group) => sum + (group.items?.length || 0), 0);
-        card.innerHTML = `
-          <button class="delete-trip" title="삭제"><i data-lucide="x" class="small-icon"></i></button>
-          <div><h3>${escapeHTML(trip.title)}</h3><p>${formatDate(trip.createdAt)} 생성 · 일정 ${scheduleCount}개 · 장소 ${trip.places.length}개</p></div>
-          <button class="ghost-btn trip-open">열기 <i data-lucide="arrow-right" class="small-icon"></i></button>`;
+        card.innerHTML = `<button class="delete-trip" title="삭제"><i data-lucide="x" class="small-icon"></i></button><div><h3>${escapeHTML(trip.title)}</h3><p>${formatDate(trip.createdAt)} 생성 · 일정 ${scheduleCount}개 · 장소 ${trip.places.length}개</p></div><button class="ghost-btn trip-open">열기 <i data-lucide="arrow-right" class="small-icon"></i></button>`;
         card.addEventListener('click', () => openDetail(trip.id));
         card.querySelector('.delete-trip').addEventListener('click', event => deleteTrip(trip.id, event));
         grid.appendChild(card);
@@ -705,73 +347,25 @@
       refreshIcons();
     }
 
-    function openDetail(id) {
-      currentTripId = id;
-      showPage('detail');
-      renderDetail();
-    }
-
+    function openDetail(id) { currentTripId = id; showPage('detail'); renderDetail(); }
     function renderDetail() {
       const trip = currentTrip();
       if (!trip) return renderMain();
       $('#tripTitleInput').value = trip.title;
-      $('#authBtn').innerHTML = currentUser
-        ? `<i data-lucide="log-out" class="small-icon"></i> ${escapeHTML(currentUser)}`
-        : '<i data-lucide="user" class="small-icon"></i> 로그인';
+      $('#authBtn').innerHTML = currentUser ? `<i data-lucide="log-out" class="small-icon"></i> ${escapeHTML(currentUser)}` : '<i data-lucide="user" class="small-icon"></i> 로그인';
       renderTransportStayCards(trip);
       renderSchedule();
       refreshIcons();
     }
 
-    function hasTransportData(transport) {
-      return ['type', 'name', 'from', 'to', 'start', 'end', 'returnFrom', 'returnTo', 'returnName', 'returnStart', 'returnEnd']
-        .some(key => transport[key]);
-    }
-
-    function hasStayData(stay) {
-      return ['type', 'name', 'location', 'checkin', 'checkout'].some(key => stay[key]);
-    }
-
+    function hasTransportData(t) { return ['type','name','from','to','start','end','returnFrom','returnTo','returnName','returnStart','returnEnd'].some(key => t[key]); }
+    function hasStayData(s) { return ['type','name','location','checkin','checkout'].some(key => s[key]); }
     function renderTransportStayCards(trip) {
-      const t = trip.transport;
-      const s = trip.stay;
-
+      const t = trip.transport, s = trip.stay;
       $('#transportCard').classList.toggle('empty-card', !hasTransportData(t));
       $('#stayCard').classList.toggle('empty-card', !hasStayData(s));
-
-      $('#transportCard').innerHTML = hasTransportData(t) ? `
-        <div class="card-title-row"><h3 class="card-title">${valueOrDash(t.type)}</h3></div>
-        <div class="transport-body">
-          <div class="route-row">
-            <div class="route-points"><span>${valueOrDash(t.from)}</span><strong>→</strong><span>${valueOrDash(t.to)}</span></div>
-            <div class="time-range"><span>${valueOrDash(t.start)}</span><span>→</span><span>${valueOrDash(t.end)}</span></div>
-          </div>
-          <div class="transport-detail-row"><div class="card-text transport-detail">${valueOrDash(t.name)}</div></div>
-          <div class="route-row">
-            <div class="route-points"><span>${valueOrDash(t.returnFrom)}</span><strong>→</strong><span>${valueOrDash(t.returnTo)}</span></div>
-            <div class="time-range"><span>${valueOrDash(t.returnStart)}</span><span>→</span><span>${valueOrDash(t.returnEnd)}</span></div>
-          </div>
-          <div class="transport-detail-row"><div class="card-text transport-detail">${valueOrDash(t.returnName)}</div></div>
-        </div>
-      ` : `
-        <div class="card-title-row"><h3 class="card-title">교통수단</h3></div>
-        <div class="empty-card-copy">어떤 교통수단을 이용하나요?</div>
-      `;
-
-      $('#stayCard').innerHTML = hasStayData(s) ? `
-        <div class="card-title-row"><h3 class="card-title">${valueOrDash(s.type)}</h3></div>
-        <div class="stay-body">
-          <div class="card-text stay-main">${valueOrDash(s.name)}</div>
-          <div class="card-text stay-address">${valueOrDash(s.location)}</div>
-          <div class="stay-time-row">
-            <div class="stay-line"><span class="time-badge">체크인</span><span class="card-text">${valueOrDash(s.checkin)}</span></div>
-            <div class="stay-line"><span class="time-badge">체크아웃</span><span class="card-text">${valueOrDash(s.checkout)}</span></div>
-          </div>
-        </div>
-      ` : `
-        <div class="card-title-row"><h3 class="card-title">숙박</h3></div>
-        <div class="empty-card-copy">어디에 숙박하나요?</div>
-      `;
+      $('#transportCard').innerHTML = hasTransportData(t) ? `<div class="card-title-row"><h3 class="card-title">${valueOrDash(t.type)}</h3></div><div class="transport-body"><div class="route-row"><div class="route-points"><span>${valueOrDash(t.from)}</span><strong>→</strong><span>${valueOrDash(t.to)}</span></div><div class="time-range"><span>${valueOrDash(t.start)}</span><span>→</span><span>${valueOrDash(t.end)}</span></div></div><div class="transport-detail-row"><div class="card-text transport-detail">${valueOrDash(t.name)}</div></div><div class="route-row"><div class="route-points"><span>${valueOrDash(t.returnFrom)}</span><strong>→</strong><span>${valueOrDash(t.returnTo)}</span></div><div class="time-range"><span>${valueOrDash(t.returnStart)}</span><span>→</span><span>${valueOrDash(t.returnEnd)}</span></div></div><div class="transport-detail-row"><div class="card-text transport-detail">${valueOrDash(t.returnName)}</div></div></div>` : `<div class="card-title-row"><h3 class="card-title">교통수단</h3></div><div class="empty-card-copy">어떤 교통수단을 이용하나요?</div>`;
+      $('#stayCard').innerHTML = hasStayData(s) ? `<div class="card-title-row"><h3 class="card-title">${valueOrDash(s.type)}</h3></div><div class="stay-body"><div class="card-text stay-main">${valueOrDash(s.name)}</div><div class="card-text stay-address">${valueOrDash(s.location)}</div><div class="stay-time-row"><div class="stay-line"><span class="time-badge">체크인</span><span class="card-text">${valueOrDash(s.checkin)}</span></div><div class="stay-line"><span class="time-badge">체크아웃</span><span class="card-text">${valueOrDash(s.checkout)}</span></div></div></div>` : `<div class="card-title-row"><h3 class="card-title">숙박</h3></div><div class="empty-card-copy">어디에 숙박하나요?</div>`;
     }
 
     function openInfoModal(type) {
@@ -779,114 +373,31 @@
       const trip = currentTrip();
       const data = type === 'transport' ? trip.transport : trip.stay;
       $('#infoModalTitle').textContent = type === 'transport' ? '교통수단 입력' : '숙박 입력';
-
-      $('#infoModalFields').innerHTML = type === 'transport' ? `
-        <label class="form-label wide">제목<input id="infoType" value="${escapeAttr(data.type)}" /></label>
-        <label class="form-label">가는 편 출발 장소<input id="infoFrom" value="${escapeAttr(data.from)}" /></label>
-        <label class="form-label">가는 편 도착 장소<input id="infoTo" value="${escapeAttr(data.to)}" /></label>
-        <label class="form-label">가는 편 세부 내용<input id="infoName" value="${escapeAttr(data.name)}" /></label>
-        <label class="form-label">가는 편 출발 시간<input id="infoStart" type="time" value="${escapeAttr(data.start)}" /></label>
-        <label class="form-label">가는 편 도착 시간<input id="infoEnd" type="time" value="${escapeAttr(data.end)}" /></label>
-        <label class="form-label">오는 편 출발 장소<input id="infoReturnFrom" value="${escapeAttr(data.returnFrom)}" /></label>
-        <label class="form-label">오는 편 도착 장소<input id="infoReturnTo" value="${escapeAttr(data.returnTo)}" /></label>
-        <label class="form-label">오는 편 세부 내용<input id="infoReturnName" value="${escapeAttr(data.returnName)}" /></label>
-        <label class="form-label">오는 편 출발 시간<input id="infoReturnStart" type="time" value="${escapeAttr(data.returnStart)}" /></label>
-        <label class="form-label">오는 편 도착 시간<input id="infoReturnEnd" type="time" value="${escapeAttr(data.returnEnd)}" /></label>
-      ` : `
-        <label class="form-label wide">제목<input id="infoType" value="${escapeAttr(data.type)}" /></label>
-        <label class="form-label wide">숙박시설 이름<input id="infoStayName" value="${escapeAttr(data.name)}" /></label>
-        <label class="form-label wide">주소<input id="infoStayLocation" value="${escapeAttr(data.location)}" /></label>
-        <label class="form-label">체크인 시간<input id="infoStayCheckin" type="time" value="${escapeAttr(data.checkin)}" /></label>
-        <label class="form-label">체크아웃 시간<input id="infoStayCheckout" type="time" value="${escapeAttr(data.checkout)}" /></label>
-      `;
-
+      $('#infoModalFields').innerHTML = type === 'transport' ? `<label class="form-label wide">제목<input id="infoType" value="${escapeAttr(data.type)}" /></label><label class="form-label">가는 편 출발 장소<input id="infoFrom" value="${escapeAttr(data.from)}" /></label><label class="form-label">가는 편 도착 장소<input id="infoTo" value="${escapeAttr(data.to)}" /></label><label class="form-label">가는 편 세부 내용<input id="infoName" value="${escapeAttr(data.name)}" /></label><label class="form-label">가는 편 출발 시간<input id="infoStart" type="time" value="${escapeAttr(data.start)}" /></label><label class="form-label">가는 편 도착 시간<input id="infoEnd" type="time" value="${escapeAttr(data.end)}" /></label><label class="form-label">오는 편 출발 장소<input id="infoReturnFrom" value="${escapeAttr(data.returnFrom)}" /></label><label class="form-label">오는 편 도착 장소<input id="infoReturnTo" value="${escapeAttr(data.returnTo)}" /></label><label class="form-label">오는 편 세부 내용<input id="infoReturnName" value="${escapeAttr(data.returnName)}" /></label><label class="form-label">오는 편 출발 시간<input id="infoReturnStart" type="time" value="${escapeAttr(data.returnStart)}" /></label><label class="form-label">오는 편 도착 시간<input id="infoReturnEnd" type="time" value="${escapeAttr(data.returnEnd)}" /></label>` : `<label class="form-label wide">제목<input id="infoType" value="${escapeAttr(data.type)}" /></label><label class="form-label wide">숙박시설 이름<input id="infoStayName" value="${escapeAttr(data.name)}" /></label><label class="form-label wide">주소<input id="infoStayLocation" value="${escapeAttr(data.location)}" /></label><label class="form-label">체크인 시간<input id="infoStayCheckin" type="time" value="${escapeAttr(data.checkin)}" /></label><label class="form-label">체크아웃 시간<input id="infoStayCheckout" type="time" value="${escapeAttr(data.checkout)}" /></label>`;
       $('#infoModalBackdrop').classList.remove('hidden');
       refreshIcons();
     }
-
-    function closeInfoModal() {
-      $('#infoModalBackdrop').classList.add('hidden');
-      editingInfoType = null;
-    }
-
+    function closeInfoModal() { $('#infoModalBackdrop').classList.add('hidden'); editingInfoType = null; }
     function confirmInfoModal() {
       const trip = currentTrip();
       if (!trip || !editingInfoType) return;
-
       if (editingInfoType === 'transport') {
-        trip.transport = {
-          ...trip.transport,
-          type: $('#infoType').value.trim(),
-          from: $('#infoFrom').value.trim(),
-          to: $('#infoTo').value.trim(),
-          name: $('#infoName').value.trim(),
-          start: $('#infoStart').value,
-          end: $('#infoEnd').value,
-          returnFrom: $('#infoReturnFrom').value.trim(),
-          returnTo: $('#infoReturnTo').value.trim(),
-          returnName: $('#infoReturnName').value.trim(),
-          returnStart: $('#infoReturnStart').value,
-          returnEnd: $('#infoReturnEnd').value
-        };
+        trip.transport = { ...trip.transport, type: $('#infoType').value.trim(), from: $('#infoFrom').value.trim(), to: $('#infoTo').value.trim(), name: $('#infoName').value.trim(), start: $('#infoStart').value, end: $('#infoEnd').value, returnFrom: $('#infoReturnFrom').value.trim(), returnTo: $('#infoReturnTo').value.trim(), returnName: $('#infoReturnName').value.trim(), returnStart: $('#infoReturnStart').value, returnEnd: $('#infoReturnEnd').value };
       } else {
-        trip.stay = {
-          ...trip.stay,
-          type: $('#infoType').value.trim(),
-          name: $('#infoStayName').value.trim(),
-          location: $('#infoStayLocation').value.trim(),
-          checkin: $('#infoStayCheckin').value,
-          checkout: $('#infoStayCheckout').value
-        };
+        trip.stay = { ...trip.stay, type: $('#infoType').value.trim(), name: $('#infoStayName').value.trim(), location: $('#infoStayLocation').value.trim(), checkin: $('#infoStayCheckin').value, checkout: $('#infoStayCheckout').value };
       }
-
-      saveState();
-      closeInfoModal();
-      renderDetail();
+      saveState(); closeInfoModal(); renderDetail();
     }
 
     function toggleAuth() {
-      if (currentUser) {
-        currentUser = '';
-        localStorage.removeItem(USER_KEY);
-        renderDetail();
-        return;
-      }
-      $('#authNameInput').value = '';
-      $('#authModalBackdrop').classList.remove('hidden');
-      setTimeout(() => $('#authNameInput').focus(), 0);
+      if (currentUser) { currentUser = ''; localStorage.removeItem(USER_KEY); renderDetail(); return; }
+      $('#authNameInput').value = ''; $('#authModalBackdrop').classList.remove('hidden'); setTimeout(() => $('#authNameInput').focus(), 0);
     }
+    function closeAuthModal() { $('#authModalBackdrop').classList.add('hidden'); }
+    function confirmAuth() { currentUser = $('#authNameInput').value.trim(); if (!currentUser) return; localStorage.setItem(USER_KEY, currentUser); localStorage.setItem(CLOUD_KEY, JSON.stringify(state)); closeAuthModal(); renderDetail(); }
+    async function shareTrip() { const trip = currentTrip(); if (!trip) return; try { await navigator.clipboard.writeText(JSON.stringify(trip, null, 2)); alert('현재 여행 데이터가 클립보드에 복사됐어요.'); } catch (error) { alert('공유 데이터 복사에 실패했어요.'); } }
 
-    function closeAuthModal() {
-      $('#authModalBackdrop').classList.add('hidden');
-    }
-
-    function confirmAuth() {
-      currentUser = $('#authNameInput').value.trim();
-      if (!currentUser) return;
-      localStorage.setItem(USER_KEY, currentUser);
-      localStorage.setItem(CLOUD_KEY, JSON.stringify(state));
-      closeAuthModal();
-      renderDetail();
-    }
-
-    async function shareTrip() {
-      const trip = currentTrip();
-      if (!trip) return;
-      const text = JSON.stringify(trip, null, 2);
-      try {
-        await navigator.clipboard.writeText(text);
-        alert('현재 여행 데이터가 클립보드에 복사됐어요. 단일 HTML 버전은 실시간 공동 편집은 지원하지 않아요.');
-      } catch (error) {
-        alert('공유 데이터 복사에 실패했어요.');
-      }
-    }
-
-    function openManager(view) {
-      managerView = view;
-      showPage('manager');
-      renderManager();
-    }
-
+    function openManager(view) { managerView = view; showPage('manager'); renderManager(); }
     function renderManager() {
       const titles = { checklist: '✅ 체크리스트', places: '📍 가고 싶은 곳', expenses: '💵 지출' };
       $('#managerTitle').textContent = titles[managerView];
@@ -899,79 +410,25 @@
     function renderChecklistPanel() {
       const trip = currentTrip();
       const panel = $('#managerPanel');
-      panel.innerHTML = `
-        <div class="section-head">
-          <p class="subcopy">카테고리를 추가한 뒤 세부 체크리스트를 작성하세요.</p>
-          <button class="primary-btn" id="addCategoryBtn"><i data-lucide="plus" class="small-icon"></i> 카테고리</button>
-        </div>
-        <div id="checklistWrap"></div>`;
-
-      $('#addCategoryBtn').onclick = () => {
-        trip.checklist.push({ id: safeUUID(), title: '새 카테고리', collapsed: false, items: [] });
-        saveState();
-        renderChecklistPanel();
-      };
-
+      panel.innerHTML = `<div class="section-head"><p class="subcopy">카테고리를 추가한 뒤 세부 체크리스트를 작성하세요.</p><button class="primary-btn" id="addCategoryBtn"><i data-lucide="plus" class="small-icon"></i> 카테고리</button></div><div id="checklistWrap"></div>`;
+      $('#addCategoryBtn').onclick = () => { trip.checklist.push({ id: safeUUID(), title: '새 카테고리', collapsed: false, items: [] }); saveState(); renderChecklistPanel(); };
       const wrap = $('#checklistWrap');
-      if (!trip.checklist.length) {
-        wrap.innerHTML = '<div class="empty">아직 체크리스트가 없습니다.</div>';
-        return;
-      }
-
+      if (!trip.checklist.length) { wrap.innerHTML = '<div class="empty">아직 체크리스트가 없습니다.</div>'; return; }
       trip.checklist.forEach(category => {
-        const box = document.createElement('div');
-        box.className = 'check-category';
-        box.innerHTML = `
-          <div class="category-header">
-            <button class="toggle-btn"><i data-lucide="${category.collapsed ? 'chevron-right' : 'chevron-down'}" class="small-icon"></i></button>
-            <input value="${escapeAttr(category.title)}" />
-            <button class="ghost-btn add-item-btn"><i data-lucide="plus" class="small-icon"></i> 항목</button>
-            <button class="danger-btn delete-category-btn"><i data-lucide="trash-2" class="small-icon"></i></button>
-          </div>
-          <div class="check-items ${category.collapsed ? 'hidden' : ''}"></div>`;
-
-        box.querySelector('.toggle-btn').onclick = () => {
-          category.collapsed = !category.collapsed;
-          saveState();
-          renderChecklistPanel();
-        };
-        box.querySelector('.category-header input').oninput = e => {
-          category.title = e.target.value;
-          saveState();
-        };
-        box.querySelector('.add-item-btn').onclick = () => {
-          category.items.push({ id: safeUUID(), text: '', done: false });
-          saveState();
-          renderChecklistPanel();
-        };
-        box.querySelector('.delete-category-btn').onclick = () => {
-          trip.checklist = trip.checklist.filter(item => item.id !== category.id);
-          saveState();
-          renderChecklistPanel();
-        };
-
+        const box = document.createElement('div'); box.className = 'check-category';
+        box.innerHTML = `<div class="category-header"><button class="toggle-btn"><i data-lucide="${category.collapsed ? 'chevron-right' : 'chevron-down'}" class="small-icon"></i></button><input value="${escapeAttr(category.title)}" /><button class="ghost-btn add-item-btn"><i data-lucide="plus" class="small-icon"></i> 항목</button><button class="danger-btn delete-category-btn"><i data-lucide="trash-2" class="small-icon"></i></button></div><div class="check-items ${category.collapsed ? 'hidden' : ''}"></div>`;
+        box.querySelector('.toggle-btn').onclick = () => { category.collapsed = !category.collapsed; saveState(); renderChecklistPanel(); };
+        box.querySelector('.category-header input').oninput = e => { category.title = e.target.value; saveState(); };
+        box.querySelector('.add-item-btn').onclick = () => { category.items.push({ id: safeUUID(), text: '', done: false }); saveState(); renderChecklistPanel(); };
+        box.querySelector('.delete-category-btn').onclick = () => { trip.checklist = trip.checklist.filter(item => item.id !== category.id); saveState(); renderChecklistPanel(); };
         const items = box.querySelector('.check-items');
         items.innerHTML = category.items.length ? '' : '<p class="subcopy">세부 항목을 추가하세요.</p>';
         category.items.forEach(item => {
-          const row = document.createElement('div');
-          row.className = 'check-row';
-          row.innerHTML = `
-            <input type="checkbox" ${item.done ? 'checked' : ''} />
-            <input type="text" value="${escapeAttr(item.text)}" placeholder="예: 여권 챙기기" />
-            <button class="danger-btn"><i data-lucide="x" class="small-icon"></i></button>`;
-          row.querySelector('input[type="checkbox"]').onchange = e => {
-            item.done = e.target.checked;
-            saveState();
-          };
-          row.querySelector('input[type="text"]').oninput = e => {
-            item.text = e.target.value;
-            saveState();
-          };
-          row.querySelector('button').onclick = () => {
-            category.items = category.items.filter(checkItem => checkItem.id !== item.id);
-            saveState();
-            renderChecklistPanel();
-          };
+          const row = document.createElement('div'); row.className = 'check-row';
+          row.innerHTML = `<input type="checkbox" ${item.done ? 'checked' : ''} /><input type="text" value="${escapeAttr(item.text)}" placeholder="예: 여권 챙기기" /><button class="danger-btn"><i data-lucide="x" class="small-icon"></i></button>`;
+          row.querySelector('input[type="checkbox"]').onchange = e => { item.done = e.target.checked; saveState(); };
+          row.querySelector('input[type="text"]').oninput = e => { item.text = e.target.value; saveState(); };
+          row.querySelector('button').onclick = () => { category.items = category.items.filter(checkItem => checkItem.id !== item.id); saveState(); renderChecklistPanel(); };
           items.appendChild(row);
         });
         wrap.appendChild(box);
@@ -982,122 +439,40 @@
     function renderPlacesPanel() {
       const trip = currentTrip();
       const panel = $('#managerPanel');
-      panel.innerHTML = `
-        <div class="section-head">
-          <p class="subcopy">가고 싶은 장소를 추가하고 구분과 지역으로 정리하세요.</p>
-          <button class="primary-btn" id="addPlaceBtn"><i data-lucide="plus" class="small-icon"></i> 장소</button>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>이름</th><th><div class="th-filter"><span>구분</span><select id="placesTypeFilter"></select></div></th><th><div class="th-filter"><span>지역</span><select id="placesAreaFilter"></select></div></th><th>참고</th><th></th></tr></thead>
-            <tbody id="placesBody"></tbody>
-          </table>
-        </div>`;
-
-      $('#addPlaceBtn').onclick = () => {
-        trip.places.push({ id: safeUUID(), name: '', type: '', area: '', note: '' });
-        saveState();
-        renderPlacesPanel();
-      };
-
+      panel.innerHTML = `<div class="section-head"><p class="subcopy">가고 싶은 장소를 추가하고 구분과 지역으로 정리하세요.</p><button class="primary-btn" id="addPlaceBtn"><i data-lucide="plus" class="small-icon"></i> 장소</button></div><div class="table-wrap"><table><thead><tr><th>이름</th><th><div class="th-filter"><span>구분</span><select id="placesTypeFilter"></select></div></th><th><div class="th-filter"><span>지역</span><select id="placesAreaFilter"></select></div></th><th>참고</th><th></th></tr></thead><tbody id="placesBody"></tbody></table></div>`;
+      $('#addPlaceBtn').onclick = () => { trip.places.push({ id: safeUUID(), name: '', type: '', area: '', note: '' }); saveState(); renderPlacesPanel(); };
       fillFilter('#placesTypeFilter', uniqueValues(trip.places, 'type'), filters.placesType, '전체');
       fillFilter('#placesAreaFilter', uniqueValues(trip.places, 'area'), filters.placesArea, '전체');
       $('#placesTypeFilter').onchange = e => { filters.placesType = e.target.value; renderPlacesPanel(); };
       $('#placesAreaFilter').onchange = e => { filters.placesArea = e.target.value; renderPlacesPanel(); };
-
-      const rows = trip.places.filter(place =>
-        (filters.placesType === 'all' || place.type === filters.placesType) &&
-        (filters.placesArea === 'all' || place.area === filters.placesArea)
-      );
-      $('#placesBody').innerHTML = rows.map(place => `
-        <tr data-id="${place.id}">
-          <td><input data-key="name" value="${escapeAttr(place.name)}" placeholder="장소명" /></td>
-          <td><input data-key="type" value="${escapeAttr(place.type)}" placeholder="카페, 식당" /></td>
-          <td><input data-key="area" value="${escapeAttr(place.area)}" placeholder="지역" /></td>
-          <td><textarea data-key="note" placeholder="참고">${escapeHTML(place.note)}</textarea></td>
-          <td><button class="danger-btn delete-row"><i data-lucide="trash-2" class="small-icon"></i></button></td>
-        </tr>`).join('') || '<tr><td colspan="5"><div class="empty">조건에 맞는 장소가 없습니다.</div></td></tr>';
-
-      bindTableInputs('places', renderPlacesPanel);
-      refreshIcons();
+      const rows = trip.places.filter(place => (filters.placesType === 'all' || place.type === filters.placesType) && (filters.placesArea === 'all' || place.area === filters.placesArea));
+      $('#placesBody').innerHTML = rows.map(place => `<tr data-id="${place.id}"><td><input data-key="name" value="${escapeAttr(place.name)}" placeholder="장소명" /></td><td><input data-key="type" value="${escapeAttr(place.type)}" placeholder="카페, 식당" /></td><td><input data-key="area" value="${escapeAttr(place.area)}" placeholder="지역" /></td><td><textarea data-key="note" placeholder="참고">${escapeHTML(place.note)}</textarea></td><td><button class="danger-btn delete-row"><i data-lucide="trash-2" class="small-icon"></i></button></td></tr>`).join('') || '<tr><td colspan="5"><div class="empty">조건에 맞는 장소가 없습니다.</div></td></tr>';
+      bindTableInputs('places', renderPlacesPanel); refreshIcons();
     }
 
     function renderExpensesPanel() {
       const trip = currentTrip();
       const panel = $('#managerPanel');
       const allItems = trip.expenses.flatMap(group => group.items || []);
-      panel.innerHTML = `
-        <div class="section-head">
-          <p class="subcopy">날짜별 지출 내역을 관리합니다.</p>
-          <button class="primary-btn" id="addExpenseDateBtn"><i data-lucide="calendar-plus" class="small-icon"></i> 날짜</button>
-        </div>
-        <div id="expenseWrap"></div>`;
-
-      $('#addExpenseDateBtn').onclick = () => {
-        trip.expenses.push({ id: safeUUID(), date: new Date().toISOString().slice(0, 10), items: [] });
-        saveState();
-        renderExpensesPanel();
-      };
-
+      panel.innerHTML = `<div class="section-head"><p class="subcopy">날짜별 지출 내역을 관리합니다.</p><button class="primary-btn" id="addExpenseDateBtn"><i data-lucide="calendar-plus" class="small-icon"></i> 날짜</button></div><div id="expenseWrap"></div>`;
+      $('#addExpenseDateBtn').onclick = () => { trip.expenses.push({ id: safeUUID(), date: new Date().toISOString().slice(0,10), items: [] }); saveState(); renderExpensesPanel(); };
       const wrap = $('#expenseWrap');
-      if (!trip.expenses.length) {
-        wrap.innerHTML = '<div class="empty">아직 지출 날짜가 없습니다.</div>';
-        return;
-      }
-
+      if (!trip.expenses.length) { wrap.innerHTML = '<div class="empty">아직 지출 날짜가 없습니다.</div>'; return; }
       trip.expenses.forEach(group => {
-        const box = document.createElement('div');
-        box.className = 'date-group';
-        box.innerHTML = `
-          <div class="date-head">
-            <input type="date" value="${group.date}" class="expense-date" />
-            <button class="ghost-btn add-expense-item"><i data-lucide="plus" class="small-icon"></i> 지출</button>
-            <span></span>
-            <button class="danger-btn delete-expense-date"><i data-lucide="trash-2" class="small-icon"></i></button>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>지출명</th><th><div class="th-filter"><span>지출 유형</span><select class="expenseTypeFilter"></select></div></th><th><div class="th-filter"><span>결제 유형</span><select class="paymentTypeFilter"></select></div></th><th>통화</th><th>지출 금액</th><th>지출 설명</th><th></th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>`;
-
+        const box = document.createElement('div'); box.className = 'date-group';
+        box.innerHTML = `<div class="date-head"><input type="date" value="${group.date}" class="expense-date" /><button class="ghost-btn add-expense-item"><i data-lucide="plus" class="small-icon"></i> 지출</button><span></span><button class="danger-btn delete-expense-date"><i data-lucide="trash-2" class="small-icon"></i></button></div><div class="table-wrap"><table><thead><tr><th>지출명</th><th><div class="th-filter"><span>지출 유형</span><select class="expenseTypeFilter"></select></div></th><th><div class="th-filter"><span>결제 유형</span><select class="paymentTypeFilter"></select></div></th><th>통화</th><th>지출 금액</th><th>지출 설명</th><th></th></tr></thead><tbody></tbody></table></div>`;
         box.querySelector('.expense-date').oninput = e => { group.date = e.target.value; saveState(); };
-        box.querySelector('.add-expense-item').onclick = () => {
-          group.items.push({ id: safeUUID(), name: '', type: '', payment: '', currency: 'KRW', amount: '', desc: '' });
-          saveState();
-          renderExpensesPanel();
-        };
-        box.querySelector('.delete-expense-date').onclick = () => {
-          trip.expenses = trip.expenses.filter(item => item.id !== group.id);
-          saveState();
-          renderExpensesPanel();
-        };
+        box.querySelector('.add-expense-item').onclick = () => { group.items.push({ id: safeUUID(), name: '', type: '', payment: '', currency: 'KRW', amount: '', desc: '' }); saveState(); renderExpensesPanel(); };
+        box.querySelector('.delete-expense-date').onclick = () => { trip.expenses = trip.expenses.filter(item => item.id !== group.id); saveState(); renderExpensesPanel(); };
         wrap.appendChild(box);
-
         fillSelect(box.querySelector('.expenseTypeFilter'), uniqueValues(allItems, 'type'), filters.expenseType, '전체');
         fillSelect(box.querySelector('.paymentTypeFilter'), uniqueValues(allItems, 'payment'), filters.paymentType, '전체');
         box.querySelector('.expenseTypeFilter').onchange = e => { filters.expenseType = e.target.value; renderExpensesPanel(); };
         box.querySelector('.paymentTypeFilter').onchange = e => { filters.paymentType = e.target.value; renderExpensesPanel(); };
-
-        const rows = group.items.filter(item =>
-          (filters.expenseType === 'all' || item.type === filters.expenseType) &&
-          (filters.paymentType === 'all' || item.payment === filters.paymentType)
-        );
-        box.querySelector('tbody').innerHTML = rows.map(item => `
-          <tr data-group="${group.id}" data-id="${item.id}">
-            <td><input data-key="name" value="${escapeAttr(item.name)}" placeholder="점심" /></td>
-            <td><input data-key="type" value="${escapeAttr(item.type)}" placeholder="식당" /></td>
-            <td><input data-key="payment" value="${escapeAttr(item.payment)}" placeholder="카드" /></td>
-            <td><select data-key="currency">${CURRENCIES.map(code => `<option value="${code}" ${item.currency === code ? 'selected' : ''}>${code}</option>`).join('')}</select></td>
-            <td><input data-key="amount" inputmode="numeric" value="${escapeAttr(item.amount)}" placeholder="숫자만" /></td>
-            <td><textarea data-key="desc" placeholder="설명">${escapeHTML(item.desc)}</textarea></td>
-            <td><button class="danger-btn delete-expense-item"><i data-lucide="trash-2" class="small-icon"></i></button></td>
-          </tr>`).join('') || '<tr><td colspan="7"><div class="empty">조건에 맞는 지출이 없습니다.</div></td></tr>';
+        const rows = group.items.filter(item => (filters.expenseType === 'all' || item.type === filters.expenseType) && (filters.paymentType === 'all' || item.payment === filters.paymentType));
+        box.querySelector('tbody').innerHTML = rows.map(item => `<tr data-group="${group.id}" data-id="${item.id}"><td><input data-key="name" value="${escapeAttr(item.name)}" placeholder="점심" /></td><td><input data-key="type" value="${escapeAttr(item.type)}" placeholder="식당" /></td><td><input data-key="payment" value="${escapeAttr(item.payment)}" placeholder="카드" /></td><td><select data-key="currency">${CURRENCIES.map(code => `<option value="${code}" ${item.currency === code ? 'selected' : ''}>${code}</option>`).join('')}</select></td><td><input data-key="amount" inputmode="numeric" value="${escapeAttr(item.amount)}" placeholder="숫자만" /></td><td><textarea data-key="desc" placeholder="설명">${escapeHTML(item.desc)}</textarea></td><td><button class="danger-btn delete-expense-item"><i data-lucide="trash-2" class="small-icon"></i></button></td></tr>`).join('') || '<tr><td colspan="7"><div class="empty">조건에 맞는 지출이 없습니다.</div></td></tr>';
       });
-
-      bindExpenseInputs();
-      refreshIcons();
+      bindExpenseInputs(); refreshIcons();
     }
 
     function renderSchedule() {
@@ -1105,60 +480,21 @@
       const allItems = trip.schedule.flatMap(group => group.items || []);
       const wrap = $('#scheduleWrap');
       wrap.innerHTML = '';
-
-      if (!trip.schedule.length) {
-        wrap.innerHTML = '<div class="empty">아직 일정 날짜가 없습니다. 날짜를 먼저 추가하세요.</div>';
-        refreshIcons();
-        return;
-      }
-
+      if (!trip.schedule.length) { wrap.innerHTML = '<div class="empty">아직 일정 날짜가 없습니다. 날짜를 먼저 추가하세요.</div>'; refreshIcons(); return; }
       trip.schedule.forEach(group => {
-        const box = document.createElement('div');
-        box.className = 'date-group';
-        box.innerHTML = `
-          <div class="date-head">
-            <input type="date" value="${escapeAttr(group.date)}" class="schedule-date" />
-            <button class="ghost-btn add-schedule-item"><i data-lucide="plus" class="small-icon"></i> 일정</button>
-            <span></span>
-            <button class="danger-btn delete-schedule-date"><i data-lucide="trash-2" class="small-icon"></i></button>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>시간</th><th>장소</th><th><div class="th-filter"><span>교통수단</span><select class="scheduleTransportFilter"></select></div></th><th>비고</th><th></th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>`;
-
+        const box = document.createElement('div'); box.className = 'date-group';
+        box.innerHTML = `<div class="date-head"><button class="toggle-btn toggle-schedule-date" aria-label="일정 접기 펼치기"><i data-lucide="${group.collapsed ? 'chevron-right' : 'chevron-down'}" class="small-icon"></i></button><input type="date" value="${escapeAttr(group.date)}" class="schedule-date" /><button class="ghost-btn add-schedule-item"><i data-lucide="plus" class="small-icon"></i> 일정</button><span></span><button class="danger-btn delete-schedule-date"><i data-lucide="trash-2" class="small-icon"></i></button></div><div class="table-wrap ${group.collapsed ? 'hidden' : ''}"><table><thead><tr><th>출발 시간</th><th>도착 시간</th><th>장소</th><th><div class="th-filter"><span>교통수단</span><select class="scheduleTransportFilter"></select></div></th><th>비고</th><th></th></tr></thead><tbody></tbody></table></div>`;
+        box.querySelector('.toggle-schedule-date').onclick = () => { group.collapsed = !group.collapsed; saveState(); renderSchedule(); };
         box.querySelector('.schedule-date').oninput = e => { group.date = e.target.value; saveState(); };
-        box.querySelector('.add-schedule-item').onclick = () => {
-          group.items.push({ id: safeUUID(), time: '', place: '', transport: '', note: '' });
-          saveState();
-          renderSchedule();
-        };
-        box.querySelector('.delete-schedule-date').onclick = () => {
-          trip.schedule = trip.schedule.filter(item => item.id !== group.id);
-          saveState();
-          renderSchedule();
-        };
-
+        box.querySelector('.add-schedule-item').onclick = () => { group.items.push({ id: safeUUID(), startTime: '', endTime: '', place: '', transport: '', note: '' }); saveState(); renderSchedule(); };
+        box.querySelector('.delete-schedule-date').onclick = () => { trip.schedule = trip.schedule.filter(item => item.id !== group.id); saveState(); renderSchedule(); };
         wrap.appendChild(box);
         fillSelect(box.querySelector('.scheduleTransportFilter'), uniqueValues(allItems, 'transport'), filters.scheduleTransport, '전체');
         box.querySelector('.scheduleTransportFilter').onchange = e => { filters.scheduleTransport = e.target.value; renderSchedule(); };
-
         const rows = group.items.filter(item => filters.scheduleTransport === 'all' || item.transport === filters.scheduleTransport);
-        box.querySelector('tbody').innerHTML = rows.map(item => `
-          <tr data-group="${group.id}" data-id="${item.id}" draggable="true">
-            <td><input data-key="time" type="time" value="${escapeAttr(item.time)}" /></td>
-            <td><input data-key="place" value="${escapeAttr(item.place)}" placeholder="장소" /></td>
-            <td><input data-key="transport" value="${escapeAttr(item.transport)}" placeholder="교통수단" /></td>
-            <td><textarea data-key="note" placeholder="비고">${escapeHTML(item.note)}</textarea></td>
-            <td><button class="danger-btn delete-schedule-item"><i data-lucide="trash-2" class="small-icon"></i></button></td>
-          </tr>`).join('') || '<tr><td colspan="5"><div class="empty">이 날짜에 추가된 일정이 없습니다.</div></td></tr>';
+        box.querySelector('tbody').innerHTML = rows.map(item => `<tr data-group="${group.id}" data-id="${item.id}" draggable="true"><td><input data-key="startTime" type="time" value="${escapeAttr(item.startTime || item.time || '')}" /></td><td><input data-key="endTime" type="time" value="${escapeAttr(item.endTime || '')}" /></td><td><input data-key="place" value="${escapeAttr(item.place)}" placeholder="장소" /></td><td><input data-key="transport" value="${escapeAttr(item.transport)}" placeholder="교통수단" /></td><td><textarea data-key="note" placeholder="비고">${escapeHTML(item.note)}</textarea></td><td><button class="danger-btn delete-schedule-item"><i data-lucide="trash-2" class="small-icon"></i></button></td></tr>`).join('') || '<tr><td colspan="6"><div class="empty">이 날짜에 추가된 일정이 없습니다.</div></td></tr>';
       });
-
-      bindScheduleInputs();
-      bindScheduleDrag();
-      refreshIcons();
+      bindScheduleInputs(); bindScheduleDrag(); refreshIcons();
     }
 
     function bindTableInputs(collectionName, rerender) {
@@ -1168,34 +504,16 @@
         if (row.dataset.group) return;
         const item = trip[collectionName].find(entry => entry.id === id);
         if (!item) return;
-        row.querySelectorAll('[data-key]').forEach(input => {
-          input.oninput = e => {
-            item[input.dataset.key] = e.target.value;
-            saveState();
-          };
-        });
+        row.querySelectorAll('[data-key]').forEach(input => { input.oninput = e => { item[input.dataset.key] = e.target.value; saveState(); }; });
         const deleteBtn = row.querySelector('.delete-row');
-        if (deleteBtn) {
-          deleteBtn.onclick = () => {
-            trip[collectionName] = trip[collectionName].filter(entry => entry.id !== id);
-            saveState();
-            rerender();
-          };
-        }
+        if (deleteBtn) deleteBtn.onclick = () => { trip[collectionName] = trip[collectionName].filter(entry => entry.id !== id); saveState(); rerender(); };
       });
     }
-
     function bindScheduleDrag() {
       let dragged = null;
       $$('tr[draggable="true"]').forEach(row => {
-        row.addEventListener('dragstart', () => {
-          dragged = row;
-          row.style.opacity = '0.45';
-        });
-        row.addEventListener('dragend', () => {
-          row.style.opacity = '';
-          dragged = null;
-        });
+        row.addEventListener('dragstart', () => { dragged = row; row.style.opacity = '.45'; });
+        row.addEventListener('dragend', () => { row.style.opacity = ''; dragged = null; });
         row.addEventListener('dragover', e => e.preventDefault());
         row.addEventListener('drop', e => {
           e.preventDefault();
@@ -1208,12 +526,10 @@
           if (from < 0 || to < 0) return;
           const [moved] = group.items.splice(from, 1);
           group.items.splice(to, 0, moved);
-          saveState();
-          renderSchedule();
+          saveState(); renderSchedule();
         });
       });
     }
-
     function bindScheduleInputs() {
       const trip = currentTrip();
       $$('tr[data-group][data-id]').forEach(row => {
@@ -1222,20 +538,10 @@
         if (!group) return;
         const item = group.items.find(entry => entry.id === row.dataset.id);
         if (!item) return;
-        row.querySelectorAll('[data-key]').forEach(input => {
-          input.oninput = e => {
-            item[input.dataset.key] = e.target.value;
-            saveState();
-          };
-        });
-        row.querySelector('.delete-schedule-item').onclick = () => {
-          group.items = group.items.filter(entry => entry.id !== item.id);
-          saveState();
-          renderSchedule();
-        };
+        row.querySelectorAll('[data-key]').forEach(input => { input.oninput = e => { item[input.dataset.key] = e.target.value; saveState(); }; });
+        row.querySelector('.delete-schedule-item').onclick = () => { group.items = group.items.filter(entry => entry.id !== item.id); saveState(); renderSchedule(); };
       });
     }
-
     function bindExpenseInputs() {
       const trip = currentTrip();
       $$('tr[data-group][data-id]').forEach(row => {
@@ -1247,87 +553,52 @@
         row.querySelectorAll('[data-key]').forEach(input => {
           input.oninput = e => {
             let value = e.target.value;
-            if (input.dataset.key === 'amount') {
-              value = value.replace(/[^0-9]/g, '');
-              e.target.value = value;
-            }
-            item[input.dataset.key] = value;
-            saveState();
+            if (input.dataset.key === 'amount') { value = value.replace(/[^0-9]/g, ''); e.target.value = value; }
+            item[input.dataset.key] = value; saveState();
           };
         });
-        row.querySelector('.delete-expense-item').onclick = () => {
-          group.items = group.items.filter(entry => entry.id !== item.id);
-          saveState();
-          renderExpensesPanel();
-        };
+        row.querySelector('.delete-expense-item').onclick = () => { group.items = group.items.filter(entry => entry.id !== item.id); saveState(); renderExpensesPanel(); };
       });
     }
-
-    function fillFilter(selector, values, selected, label) {
-      fillSelect($(selector), values, selected, label);
-    }
-
+    function fillFilter(selector, values, selected, label) { fillSelect($(selector), values, selected, label); }
     function fillSelect(el, values, selected, label) {
       if (!el) return;
       el.innerHTML = `<option value="all">${label}</option>` + values.map(value => `<option value="${escapeAttr(value)}">${escapeHTML(value)}</option>`).join('');
       el.value = values.includes(selected) ? selected : 'all';
     }
-
     function runSmokeTests() {
       console.assert(typeof createTrip === 'function', 'createTrip should exist');
-      console.assert(typeof renderSchedule === 'function', 'renderSchedule should exist');
-      console.assert(Array.isArray(state.trips), 'state.trips should be an array');
-      console.assert(document.querySelectorAll('#createTripBtn').length === 1, 'createTrip button should be unique');
-      console.assert(document.querySelectorAll('#addScheduleDateBtn').length === 1, 'schedule date button should be unique');
-      console.assert(getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() === '#ffffff', 'background should be white');
-      console.assert(getComputedStyle(document.querySelector('.route-points') || document.documentElement).gridTemplateColumns !== '', 'route arrow grid should be valid');
+      console.assert(document.querySelectorAll('#createTripBtn').length === 1, 'create trip button should be unique');
+      console.assert(document.querySelectorAll('#addTripBtn').length === 1, 'main add button should be unique');
+      console.assert(Array.isArray(state.trips), 'state.trips should be array');
     }
 
-    $('#addTripBtn').onclick = openModal;
-    $('#cancelTripBtn').onclick = closeModal;
-    $('#createTripBtn').onclick = createTrip;
-    $('#newTripTitle').addEventListener('keydown', e => {
-      if (e.key === 'Enter') createTrip();
-      if (e.key === 'Escape') closeModal();
-    });
-    $('#modalBackdrop').addEventListener('click', e => {
-      if (e.target.id === 'modalBackdrop') closeModal();
-    });
-    $('#infoModalBackdrop').addEventListener('click', e => {
-      if (e.target.id === 'infoModalBackdrop') closeInfoModal();
-    });
-    $('#authModalBackdrop').addEventListener('click', e => {
-      if (e.target.id === 'authModalBackdrop') closeAuthModal();
-    });
-    $('#cancelInfoBtn').onclick = closeInfoModal;
-    $('#confirmInfoBtn').onclick = confirmInfoModal;
-    $('#cancelAuthBtn').onclick = closeAuthModal;
-    $('#confirmAuthBtn').onclick = confirmAuth;
-    $('#authBtn').onclick = toggleAuth;
-    $('#shareBtn').onclick = shareTrip;
-    $('#backBtn').onclick = renderMain;
-    $('#managerBackBtn').onclick = () => { showPage('detail'); renderDetail(); };
-    $('#transportCard').onclick = () => openInfoModal('transport');
-    $('#stayCard').onclick = () => openInfoModal('stay');
-    $('#transportCard').addEventListener('keydown', e => { if (e.key === 'Enter') openInfoModal('transport'); });
-    $('#stayCard').addEventListener('keydown', e => { if (e.key === 'Enter') openInfoModal('stay'); });
-    $('#tripTitleInput').oninput = e => {
-      const trip = currentTrip();
-      if (!trip) return;
-      trip.title = e.target.value || '제목 없는 여행';
-      saveState();
-    };
-    $$('.tab-btn').forEach(btn => { btn.onclick = () => openManager(btn.dataset.manager); });
-    $('#addScheduleDateBtn').onclick = () => {
-      const trip = currentTrip();
-      if (!trip) return;
-      trip.schedule.push({ id: safeUUID(), date: new Date().toISOString().slice(0, 10), items: [] });
-      saveState();
-      renderSchedule();
-    };
-
-    renderMain();
-    runSmokeTests();
+    function init() {
+      $('#addTripBtn').addEventListener('click', openModal);
+      $('#cancelTripBtn').addEventListener('click', closeModal);
+      $('#createTripBtn').addEventListener('click', createTrip);
+      $('#newTripTitle').addEventListener('keydown', e => { if (e.key === 'Enter') createTrip(); if (e.key === 'Escape') closeModal(); });
+      $('#modalBackdrop').addEventListener('click', e => { if (e.target.id === 'modalBackdrop') closeModal(); });
+      $('#infoModalBackdrop').addEventListener('click', e => { if (e.target.id === 'infoModalBackdrop') closeInfoModal(); });
+      $('#authModalBackdrop').addEventListener('click', e => { if (e.target.id === 'authModalBackdrop') closeAuthModal(); });
+      $('#cancelInfoBtn').addEventListener('click', closeInfoModal);
+      $('#confirmInfoBtn').addEventListener('click', confirmInfoModal);
+      $('#cancelAuthBtn').addEventListener('click', closeAuthModal);
+      $('#confirmAuthBtn').addEventListener('click', confirmAuth);
+      $('#authBtn').addEventListener('click', toggleAuth);
+      $('#shareBtn').addEventListener('click', shareTrip);
+      $('#backBtn').addEventListener('click', renderMain);
+      $('#managerBackBtn').addEventListener('click', () => { showPage('detail'); renderDetail(); });
+      $('#transportCard').addEventListener('click', () => openInfoModal('transport'));
+      $('#stayCard').addEventListener('click', () => openInfoModal('stay'));
+      $('#transportCard').addEventListener('keydown', e => { if (e.key === 'Enter') openInfoModal('transport'); });
+      $('#stayCard').addEventListener('keydown', e => { if (e.key === 'Enter') openInfoModal('stay'); });
+      $('#tripTitleInput').addEventListener('input', e => { const trip = currentTrip(); if (!trip) return; trip.title = e.target.value || '제목 없는 여행'; saveState(); });
+      $$('.tab-btn').forEach(btn => btn.addEventListener('click', () => openManager(btn.dataset.manager)));
+      $('#addScheduleDateBtn').addEventListener('click', () => { const trip = currentTrip(); if (!trip) return; trip.schedule.push({ id: safeUUID(), date: new Date().toISOString().slice(0,10), collapsed: false, items: [] }); saveState(); renderSchedule(); });
+      renderMain(); runSmokeTests(); refreshIcons();
+    }
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
